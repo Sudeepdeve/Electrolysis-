@@ -130,7 +130,63 @@
             background-color: #3498db;
             color: #fff;
         }
+        
     </style>
+ <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        #comments-section {
+            margin-top: 20px;
+        }
+
+        #comment-form {
+            margin-top: 20px;
+        }
+    </style>
+    <div id="comments-section">
+        <h2>Comments</h2>
+        <ul id="comment-list"></ul>
+    </div>
+
+    <div id="comment-form">
+        <h2>Leave a Comment</h2>
+        <form id="add-comment-form">
+            <label for="username">Your Name:</label>
+            <input type="text" id="username" required>
+<br>
+            <label for="comment">Your Comment:</label>
+            <textarea id="comment" rows="4" required></textarea>
+
+            <button type="button" onclick="addComment()">Add Comment</button>
+        </form>
+    </div>
+
+    <script>
+        function addComment() {
+            var username = document.getElementById('username').value;
+            var commentText = document.getElementById('comment').value;
+
+            if (username && commentText) {
+                var commentList = document.getElementById('comment-list');
+                var newComment = document.createElement('li');
+                newComment.innerHTML = '<strong>' + username + ':</strong> ' + commentText;
+                commentList.appendChild(newComment);
+
+        
+                document.getElementById('username').value = '';
+                document.getElementById('comment').value = '';
+            } else {
+                alert('Please enter your name and comment before submitting.');
+            }
+        }
+    </script>
     <a href="https://sudeepdeve.github.io/Contents/"class="custom-button">Back To Previous Page<--</a>    
 
 </body>
